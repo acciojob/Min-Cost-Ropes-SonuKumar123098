@@ -2,9 +2,9 @@ function mincost(arr)
 { 
 //write your code here
 // return the min cost
-  
+  let sum=0;
 	for(let i=0;i<arr.length;i++){
-		if(arr.length<2) return arr[0];
+		if(arr.length<2) return sum;
 		let first=100000; let second=100000;
 		let ind1=0, ind2=1;
 		for(let j in arr){
@@ -21,9 +21,10 @@ function mincost(arr)
 			}
 		}
 		arr[ind2]=arr[ind1]+arr[ind2];
+		sum+=arr[ind2];
 		arr.splice(ind1,1);
 	}
-	return arr[0];
+	return sum;
 }
 
 module.exports=mincost;
